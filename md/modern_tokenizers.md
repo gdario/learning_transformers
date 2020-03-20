@@ -11,7 +11,7 @@ In this approach, common words are tokenized as whole words, while less common w
 
 ## Byte Pair Encoding (BPE)
 
-There is quite a bit of information in [this blog post](https://leimao.github.io/blog/Byte-Pair-Encoding/).
+Byte Pair Encoding is described in [this paper](https://arxiv.org/abs/1508.07909). There is quite a bit of information in [this blog post](https://leimao.github.io/blog/Byte-Pair-Encoding/).
 
 The main goal of the BPE subword algoritm is to find a way to represent a text with the least amount of tokens. We initially count the number of tokens, and then merge *byte pairs* based on their frequency. For example, if a character corresponds exactly to a byte (true only for ASCII), we:
 
@@ -32,6 +32,7 @@ This approach mimics a Language Model, where we try to predict the probability o
 
 ## WordPiece
 
+WordPiece is described in [this paper](https://research.google/pubs/pub37842/).
 This is the tokenizer used in BERT. It is similar to BPE, but rather than considering the frequence, it considers the change in likelihood after merging the tokens. This is the probability of the new merged pair minus the probability of both individual tokens occurring individually. It is still a greedy approach, but unlike BPE, it is based on probability, not frequency.
 
 ## SentencePiece
